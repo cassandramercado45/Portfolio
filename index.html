@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.8;
+      letter-spacing: 0.5px;
+      scroll-behavior: smooth;
+      background: url('background5.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ddd;
+    }
+
+    nav {
+      background: rgba(0, 0, 0, 0.7); 
+      backdrop-filter: blur(6px);
+    }
+    nav a {
+      color: #fff !important;
+      margin: 0 15px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #f9e7ef !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .hero-box {
+      background: rgba(252, 179, 216, 0.85);
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 800px;
+      color: #e3b4b4;
+    }
+    .hero-box h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+    }
+    .hero-box p {
+      color: #eee;
+      font-size: 1.1rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: #e576d3;
+      margin-bottom: 25px;
+      text-align: center;
+      position: relative;
+    }
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: #ffa2ca;
+      margin: 12px auto 0;
+      border-radius: 3px;
+      box-shadow: 0px 0px 10px rgba(214, 51, 132, 0.8);
+    }
+
+    /* Sections */
+    section {
+      background: transparent;
+      padding: 60px 20px;
+      margin: 40px auto;
+      max-width: 1000px;
+      color: #b68383;
+    }
+    section p {
+      font-size: 1.05rem;
+    }
+
+    .profile-pic {
+      width: 120px;   /* mas maliit */
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #ffd6e8;
+      margin-bottom: 15px;
+    }
+
+    .badge {
+      background: rgba(255, 214, 232, 0.9);
+      color: #333;
+      padding: 10px 18px;
+      margin: 5px;
+      border-radius: 20px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    .badge:hover {
+      background: #d63384;
+      color: #fff;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+      color: #333;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.7); 
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.9s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #ffd6e8;
+      color: #d63384;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 1000;
+      transition: background 0.3s, transform 0.3s;
+    }
+    #backToTop:hover {
+      background: #d63384;
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    /* Contact Section */
+    #contact .contact-list li {
+      margin: 10px 0;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    #contact .contact-list i {
+      margin-right: 10px;
+      color: #d63384;
+      font-size: 1.2rem;
+    }
+    #contact a {
+      color: #ab7979;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    #contact a:hover {
+      color: #946464;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand text-white fw-bold" href="#">My Portfolio</a>
+      <div>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-box fade-in">
+      <h1>Hi, Welcome to My Portfolio!</h1>
+      <p>
+        Hi! I’m <strong>Ma. Cassandra B. Mercado</strong>, a 3rd-year Bachelor of Science in Information Technoloy student at Batangas State University and an aspiring <strong>IT Service Desk Analyst</strong>.  
+        I’m passionate about <strong>technical support, troubleshooting, and IT service management</strong>.  
+      </p>
+      <p>
+        My goal is to build a career where I can apply my <strong>problem-solving skills</strong>, <strong>communication abilities</strong>, and <strong>technical knowledge</strong> to provide excellent IT solutions.  
+      </p>
+    </div>
+  </section>
+
+  <!-- About Me -->
+  <section id="about" class="container text-center my-5 fade-in">
+    <h2 class="section-title">About Me</h2>
+    <img src="me.jpg" alt="Profile Picture" class="profile-pic">
+    <p>I'm from Bigain I, San Jose, Batangas and I'm 21 years old. My birthday is on <ins>January 17, 2004</ins>, and I'm taking a Bachelor of Science in Information Technology at Batangas State University, The National Engineering University.</p>
+    <p>My hobbies are watching TikTok, listening to OPM, and playing with my cousins. My dream is to become a <strong>IT Service Desk Analyst</strong>.</p>
+    <p><em>"When the time is right, I the Lord will make it happen."</em> – Isaiah 60:22</p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="container text-center my-5 fade-in">
+    <h2 class="section-title">Skills</h2>
+    <span class="badge"><i class="fa-solid fa-headset"></i> IT Support</span>
+    <span class="badge"><i class="fa-solid fa-network-wired"></i> Technical Skills </span>
+    <span class="badge"><i class="fa-solid fa-shield-halved"></i> ITSM Knowledge </span>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="container my-5 fade-in text-center">
+    <h2 class="section-title">Projects</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-4 mb-3">
+        <div class="project-card">
+          <h5>IT Resources Hub System</h5>
+          <p>A centralized platform for IT students to collaborate, share resources, and enhance skills.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="project-card">
+          <h5>Attendance & Payroll System</h5>
+          <p>Automated payroll and attendance tracker with leave management for Java Junction Cafe.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="project-card">
+          <h5>Portfolio Website</h5>
+          <p>This responsive portfolio built with HTML, CSS, and Bootstrap to showcase my work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Contact Info - Left inside center -->
+<section id="contact" class="container text-center my-5 fade-in">
+  <h2 class="section-title">Contact Information</h2>
+  <div class="d-flex justify-content-center">
+    <ul class="list-unstyled contact-list text-start">
+      <li><i class="fa-solid fa-envelope"></i> 
+        <a href="mailto:cassandramercado45@gmail.com">cassandramercado45@gmail.com</a>
+      </li>
+      <li><i class="fa-solid fa-phone"></i> 
+        <a href="tel:+639955218651">+63 995 521 8651</a>
+      </li>
+      <li><i class="fa-solid fa-location-dot"></i> 
+        <a href="https://maps.google.com/?q=San+Jose,+Batangas" target="_blank">San Jose, Batangas, Philippines</a>
+      </li>
+      <li><i class="fa-brands fa-facebook"></i> 
+        <a href="https://facebook.com/cassandra.mercado" target="_blank">fb.com/cassandra.mercado</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script>
+    // Fade-in effect on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = 'flex';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
